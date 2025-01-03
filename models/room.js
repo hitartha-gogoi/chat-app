@@ -1,7 +1,6 @@
 import mongoose from "mongoose"
 const { ObjectId } = mongoose.Schema.Types
 
-
 const RoomSchema = mongoose.Schema({
     _id : ObjectId,
     name: { type: String, required: true, unique: true },

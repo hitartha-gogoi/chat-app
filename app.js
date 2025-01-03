@@ -9,6 +9,7 @@ import { Strategy as LocalStrategy } from 'passport-local';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import UserRoutes from "./routes/user.js"
 import PostRouter from "./routes/posts.js"
+//import MessageRouter from "./routes/message.js"
 import connectDB from "./connect-db.js"
 
 const app = express()
@@ -19,6 +20,7 @@ app.use(cors())
 app.use(morgan('dev'))
 app.use(UserRoutes)
 app.use(PostRouter)
+//app.use(MessageRouter)
 app.use(express.static('./uploads'))
 
 app.use(session({
@@ -34,7 +36,7 @@ app.use(session({
   passport.use(new GoogleStrategy({
    clientID: process.env.GOOGLE_CLIENT_ID,
    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-   callbackURL: `/auth/google/callback`, // Redirect URI
+   callbackURL: `https://backend-second.vercel.app/auth/google/callback`, // Redirect URI
  },
  (accessToken, refreshToken, profile, done) => {
    // Here you can save user details to a database
