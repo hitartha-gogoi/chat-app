@@ -36,7 +36,7 @@ app.use(session({
   passport.use(new GoogleStrategy({
    clientID: process.env.GOOGLE_CLIENT_ID,
    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-   callbackURL: `https://backend-second.vercel.app/auth/google/callback`, // Redirect URI
+   callbackURL: `/auth/google/callback`, // Redirect URI
  },
  (accessToken, refreshToken, profile, done) => {
    // Here you can save user details to a database
