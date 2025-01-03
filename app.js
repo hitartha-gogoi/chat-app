@@ -36,7 +36,7 @@ app.use(session({
   passport.use(new GoogleStrategy({
    clientID: process.env.GOOGLE_CLIENT_ID,
    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-   callbackURL: `${process.env.IP_ADDRESS}/auth/google/callback`, // Redirect URI
+   callbackURL: `${process.env.WEBSITE}/auth/google/callback`, // Redirect URI
  },
  (accessToken, refreshToken, profile, done) => {
    // Here you can save user details to a database
