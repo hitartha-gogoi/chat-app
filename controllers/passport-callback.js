@@ -32,6 +32,6 @@ export default async function PassportCallbackURL(req,res) {
 
     const token = createToken(newUser)
     console.log(user)
-    res.status(200).json({ message: "success", token: token })
+    res.status(200).redirect(`${process.env.WEBSITE}?token=${token}`)
     
 }
