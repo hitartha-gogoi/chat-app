@@ -15,7 +15,7 @@ export default async function PassportCallbackURL(req,res) {
     if (existingUser) {
         console.log("user already exists!", existingUser)
         const token = createToken(existingUser)
-        return res.status(200).redirect(`${process.env.WEBSITE}?token=${token}`)
+        return res.status(200).redirect(`/verify?token=${token}`)
     }
 
     const user = {
@@ -32,6 +32,6 @@ export default async function PassportCallbackURL(req,res) {
 
     const token = createToken(newUser)
     console.log(user)
-    res.status(200).redirect(`${process.env.WEBSITE}/verify?token=${token}`)
+    res.status(200).redirect(`/verify?token=${token}`)
     
 }
