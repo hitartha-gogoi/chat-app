@@ -23,6 +23,8 @@ router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 
 
 router.get('/auth/google/callback',  passport.authenticate("google", { session: false }), PassportCallbackURL)
 
+router.get("/verify", (req,res)=> res.status(200).json({ message: "Success" }))
+
 const UserRoutes = router
 
 export default UserRoutes 
